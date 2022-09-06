@@ -4,4 +4,4 @@ wget https://github.com/jeremylong/DependencyCheck/releases/download/v7.1.2/depe
 unzip dependency-check-7.1.2-release.zip 
 cd dependency-check/
 cd bin/
-./dependency-check.sh --scan $SRC/src --format "ALL" --out $SRC/odc-reports/
+./dependency-check.sh --scan $(SRC)/src --format "ALL" --out $(SRC)/odc-reports/
