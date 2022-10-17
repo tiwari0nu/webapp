@@ -49,14 +49,14 @@ pipeline {
     stage ('Deploy-To-Tomcat') {
             steps {
            sshagent(['tomcat']) {
-                sh 'scp -o StrictHostKeyChecking=no target/*.war vishnu@127.0.0.1:/home/vishnu/apache-tomcat-9.0.65/webapps/webapp.war'
+                sh 'scp -o StrictHostKeyChecking=no target/*.war devsecops@127.0.0.1:/home/vishnu/apache-tomcat-9.0.65/webapps/webapp.war'
               }      
            }        
     }
     
   stage ('DAST') {
       steps {
-        sh 'docker run -t owasp/zap2docker-stable zap-baseline.py -t http://192.168.29.183:9090/webapp/ || true'
+        sh 'docker run -t owasp/zap2docker-stable zap-baseline.py -t http://192.168.29.65:9090/webapp/ || true'
         
       }
     }      
